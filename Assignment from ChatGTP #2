@@ -1,0 +1,27 @@
+<?php
+echo "Podaj liczbe calkowita (jesli podasz 0 obliczy ich sume)\n";
+$tab = [];
+
+while (true) {
+    $liczba = readline("Podaj liczbe calkowita: ");
+    
+    if (!is_numeric($liczba)) {
+        echo "Twoja liczba nie zostala wzieta pod uwage poniewaz nie podales liczby\n";
+        continue;
+    }
+
+    $liczba = str_replace('.', ',', $liczba);
+    
+    if (strpos($liczba, ',')) {
+        echo "Twoja liczba nie zostala wzieta pod uwage poniewaz nie podales liczby calkowitej\n";
+        continue;
+    } elseif ($liczba == 0) {
+        break;
+    } else {
+        $tab[] = $liczba;
+    }
+}
+
+
+echo "Suma: " . array_sum($tab);
+?>
