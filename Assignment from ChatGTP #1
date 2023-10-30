@@ -1,0 +1,47 @@
+<?php
+function dodawanie($n, $m){
+    return $n + $m;
+}
+
+function odejmowanie($n, $m){
+    return $n - $m;
+}
+
+function mnozenie($n, $m){
+    return $n * $m;
+}
+
+function dzielenie($n, $m){
+    if($m == 0 || $n == 0){
+        exit('Nie można dzielić przez 0');
+    }
+    return $n / $m; 
+}
+
+echo 'Kalkulator' . "\n";
+echo '1. Dodawanie'. "\n";
+echo '2. Odejmowanie'. "\n";
+echo '3. Mnożenie'. "\n";
+echo '4. Dzielenie'. "\n";
+
+
+$operacja = readline('Wybierz operację (wpisz numer): ');
+$liczba1 = readline('Podaj pierwszą liczbę: ');
+$liczba2 = readline('Podaj drugą liczbę: ');
+
+if(!is_alnum($liczba1) || !is_numeric($liczba2) || !is_numeric($operacja)){
+    exit('Podane wartości muszą być liczbami');
+}
+
+if($operacja == '1'){
+    echo 'Wynik : ' . $liczba1 . ' + ' . $liczba2 . ' = ' . dodawanie($liczba1, $liczba2) . "\n";
+}elseif($operacja == '2'){
+    echo 'Wynik : ' . $liczba1 . ' - ' . $liczba2 . ' = ' . odejmowanie($liczba1, $liczba2) . "\n";
+}elseif($operacja == '3'){
+    echo 'Wynik : ' . $liczba1 . ' * ' . $liczba2 . ' = ' . mnozenie($liczba1, $liczba2) . "\n";
+}elseif($operacja == '4'){
+    echo 'Wynik : ' . $liczba1 . ' / ' . $liczba2 . ' = ' . dzielenie($liczba1, $liczba2) . "\n";
+}else{
+    echo 'Nieznana operacja'. "\n";
+}
+?>
